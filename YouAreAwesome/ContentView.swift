@@ -8,66 +8,85 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var strMessage = "Yo-Yo"
+    @State private var strMessage = "Namaste"
 //    @State private var intCount = 1
     
     var body: some View {
-        
-        ZStack {
-            Rectangle()
-//                .fill(.yellow.gradient)
-                .fill(
-                    Gradient(colors: [.white, .orange, .black])
-                )
-                .ignoresSafeArea()
-            
-//            Color.yellow.opacity(0.7)
-//                .ignoresSafeArea()
                 
             VStack (spacing: 4) {
-                Text("You have Skills!")
-                    .font(.largeTitle)
-                    .fontWeight(.black)
-                    .foregroundColor(Color("Gold-BC"))
-                    .background(Color("Maroon-BC"))
-                    .cornerRadius(10)
                 Spacer()
+                
+                Image(systemName: "speaker.wave.3", variableValue: 0.7)
+                    .resizable()
+                    .scaledToFit()
+                    .symbolRenderingMode(.multicolor)
+                    .padding()
+                    .background(Color(hue: 0.511, saturation: 0.36, brightness: 0.941))
+                    .cornerRadius(30)
+                    .shadow(color: .gray, radius: 30, x:20, y:20)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 30)
+                            .stroke(.teal, lineWidth:1)
+                    )
+                    .padding()
+                
+//                Image(systemName: "cloud.sun.rain.fill")
+//                    .resizable()
+//                    .scaledToFit()
+//                    .symbolRenderingMode(.multicolor)
+//                    .padding()
+//                    .background(Color(hue: 0.511, saturation: 0.36, brightness: 0.941))
+//                    .cornerRadius(30)
+//                    .shadow(color: .gray, radius: 30, x:20, y:20)
+//                    .overlay(
+//                        RoundedRectangle(cornerRadius: 30)
+//                            .stroke(.teal, lineWidth:1)
+//                    )
+//                    .padding()
+//                    .clipShape(Circle())
+//                    .shadow(color: .gray, radius: 20, x:20, y:20)
+//                    .padding()
+//                    .foregroundStyle(.gray, .orange, .blue)
+//                    .padding()
+//                    .scaledToFill()
+//                    .border(.pink)
+//                    .foregroundColor(Color.pink)
+//                    .frame(width: 200, height: 300)
+//                    .border(.blue)
+//                    .clipped()
+                    
+                Spacer()
+                
                 Text(strMessage)
                     .font(.largeTitle)
                     .fontWeight(.heavy)
                     .minimumScaleFactor(0.5)
                     .multilineTextAlignment(.center)
-                    .foregroundColor(Color.green)
+                    .foregroundColor(Color.red)
                     .frame(height: 150)
                     .frame(maxWidth: .infinity)
-    //                .border(.cyan, width: 1)
                     .padding()
+                
                 Spacer()
-                Spacer()
+                
                 HStack {
+                    
                     Button("Awesome") {
                         strMessage="You are Awesome!"
                     }
                     .foregroundColor(Color.yellow).bold()
                     .buttonStyle(.borderedProminent)
+                    
                     Spacer()
                     
-                    Button("Wonderful", action: {strMessage="You are wonderful"})
+                    Button("Great", action: {strMessage="You are Great"})
                         .foregroundColor(Color.black)
                         .buttonStyle(.borderedProminent)
-                    Spacer()
-                    Button("Clear") {
-                        strMessage = "This hopefully should be an extra long sentence. If you think it is not then you will have to properly explain in detail why it is not"
-                    }
-                    .foregroundColor(Color.yellow).bold()
-                    .buttonStyle(.borderedProminent)
                 }
                 .padding()
                 .tint(Color("Vermillion"))
-    //            .background(Color("SkyBlue"))
-    //            .border(.gray, width: 1)
             }
-        }
+
     }
 }
 
