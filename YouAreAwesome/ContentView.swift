@@ -8,53 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var strMessage = "Namaste"
-//    @State private var intCount = 1
+    @State private var strMessage = ""
+
     
     var body: some View {
                 
             VStack (spacing: 4) {
-                Spacer()
-                
-                Image(systemName: "speaker.wave.3", variableValue: 0.7)
-                    .resizable()
-                    .scaledToFit()
-                    .symbolRenderingMode(.multicolor)
-                    .padding()
-                    .background(Color(hue: 0.511, saturation: 0.36, brightness: 0.941))
-                    .cornerRadius(30)
-                    .shadow(color: .gray, radius: 30, x:20, y:20)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 30)
-                            .stroke(.teal, lineWidth:1)
-                    )
-                    .padding()
-                
-//                Image(systemName: "cloud.sun.rain.fill")
-//                    .resizable()
-//                    .scaledToFit()
-//                    .symbolRenderingMode(.multicolor)
-//                    .padding()
-//                    .background(Color(hue: 0.511, saturation: 0.36, brightness: 0.941))
-//                    .cornerRadius(30)
-//                    .shadow(color: .gray, radius: 30, x:20, y:20)
-//                    .overlay(
-//                        RoundedRectangle(cornerRadius: 30)
-//                            .stroke(.teal, lineWidth:1)
-//                    )
-//                    .padding()
-//                    .clipShape(Circle())
-//                    .shadow(color: .gray, radius: 20, x:20, y:20)
-//                    .padding()
-//                    .foregroundStyle(.gray, .orange, .blue)
-//                    .padding()
-//                    .scaledToFill()
-//                    .border(.pink)
-//                    .foregroundColor(Color.pink)
-//                    .frame(width: 200, height: 300)
-//                    .border(.blue)
-//                    .clipped()
-                    
+
                 Spacer()
                 
                 Text(strMessage)
@@ -72,16 +32,20 @@ struct ContentView: View {
                 HStack {
                     
                     Button("Awesome") {
-                        strMessage="You are Awesome!"
+//                        if (strMessage == message1) {
+//                            strMessage = message2
+//                        }
+//                        else {
+//                            strMessage = message1
+//                        }
+                        let  message1 = "You are Awesome!"
+                        let  message2 = "You are Great!"
+                        strMessage = (strMessage == message1 ? message2 : message1   )
                     }
                     .foregroundColor(Color.yellow).bold()
                     .buttonStyle(.borderedProminent)
                     
-                    Spacer()
-                    
-                    Button("Great", action: {strMessage="You are Great"})
-                        .foregroundColor(Color.black)
-                        .buttonStyle(.borderedProminent)
+ 
                 }
                 .padding()
                 .tint(Color("Vermillion"))
