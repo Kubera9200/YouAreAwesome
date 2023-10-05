@@ -13,45 +13,51 @@ struct ContentView: View {
     @State private var varImage = "image"
     @State private var count: Int = 0
     @State private var strCount = "0"
-//    @State private var strImgCount = ""
-    
+    @State private var messageString: String = ""
+
     var body: some View {
-                
-            VStack (spacing: 4) {
-
-                
-                Spacer()
-//      this doesn't work, why?
-//             strImgCount = "image\(strCount)"
-                Image(varImage+strCount)
-                    .resizable()
-                    .scaledToFit()
-                    .cornerRadius(30)
-                    .shadow(radius: 10)
-                    .padding()
-                
-                Text(String(count))
-                
-                HStack {
-                    
-                    Button("Awesome") {
-                        if(count == 9){
-                            count = 0
-                        }
-                        else{
-                            count+=1
-                        }
-                        strCount = String(count)
-                        print(String(count))
-                    }
-                    .foregroundColor(Color.yellow).bold()
-                    .buttonStyle(.borderedProminent)
-                }
+        let messagesArray = ["m0", "m1", "m2",
+                             "m3","m4", "m5",
+                             "m6", "m7", "m8",
+                             "m9", "m10", "m11"]
+        
+        VStack (spacing: 4) {
+            
+            Image(varImage+strCount)
+                .resizable()
+                .scaledToFit()
+                .cornerRadius(30)
+                .shadow(radius: 10)
                 .padding()
-                .tint(Color("Vermillion"))
-                Spacer()
-            }
 
+            Text(messageString)
+
+            
+            HStack {
+                
+                
+                Button("Awesome") {
+                    
+                    if(count == 9){
+                        count = 0
+                    }
+                    else{
+                        count+=1
+                    }
+                    strCount = String(count)
+                    
+                    messageString = messagesArray[Int.random(in: 0...(messagesArray.count-1))]
+                    
+                }
+                .foregroundColor(Color.yellow).bold()
+                .buttonStyle(.borderedProminent)
+                
+            }
+            .padding()
+            .tint(Color("Vermillion"))
+            Spacer()
+        }
+        
     }
 }
 
